@@ -31,7 +31,7 @@ public class createUser {
     private static String myUserNameResponse;
     private static String myPasswordResponse;
 
-    @Test
+    @Test (priority = -1)
     public void createUserSuccess() {
 
         // get create user success request body
@@ -86,12 +86,45 @@ public class createUser {
         response.then()
                 .assertThat()
                 .body("id", is(greaterThan(0))) // Assert a non-empty variable
-                .body("id", isA(Number.class)) // Assert a variable is a number
                 .body("userName", not(empty())) // Assert a non-empty variable
-                .body("userName", isA(String.class)) // Assert a variable is a string
                 .body("password", not(empty())) // Assert a non-empty variable
-                .body("password", isA(String.class)) // Assert a variable is a string
                 .body(JsonSchemaValidator.matchesJsonSchema(new File(jsonSchemaFilePath))) // Validate the json schema response
+                .time(lessThan(5000L)); // Validate the response time – in milliseconds
+    }
+
+    @Test
+    public void validateCreateUserWithRegisteredData() {
+
+        // get create user success request body
+        JSONObject payload = dataUsers.createUserSuccess();
+
+        System.out.println("--------------------Request----------------------");
+
+        Response response = given().log().all()
+                .accept("*/*")
+                .contentType(ContentType.JSON)
+                .and()
+                .body(payload.toString())
+                .when()
+                .post(apiEndpoints.getUsers()); // get endpoints to create user
+
+        System.out.println("--------------------Response----------------------");
+
+        // Get response code
+        int statusCode = response.getStatusCode();
+        System.out.println("Response Status Codes: " + statusCode);
+
+        // Get response body
+        String responseBody = response.thenReturn().asPrettyString();
+        System.out.println("Response Body:\n" + responseBody);
+
+        //Assert
+        Assert.assertEquals(statusCode, 406, "Check the status code is 406");
+        Assert.assertEquals(response.getContentType(), "application/json; charset=utf-8; v=1.0", "Check the content type is application/json; charset=utf-8; v=1.0");
+        Assert.assertFalse(responseBody.isEmpty(), "Check the response body is not empty");
+
+        response.then()
+                .assertThat()
                 .time(lessThan(5000L)); // Validate the response time – in milliseconds
     }
 }

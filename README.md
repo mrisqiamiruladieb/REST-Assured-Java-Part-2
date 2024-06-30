@@ -16,3 +16,5 @@
 ## Issues and solutions
 - Cannot resolve symbol 'module' when _importing io.restassured.module.jsv.JsonSchemaValidator;_
   - **Solution :** Add `<scope>test</scope>` to _the corresponding dependency_ in **pom.xml**
+- _Prioritizing tests_ in **TestNG**
+  - **Solution :** [Code](https://www.browserstack.com/guide/prioritizing-tests-in-testng-with-selenium)
