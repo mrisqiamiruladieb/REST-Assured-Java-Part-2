@@ -10,4 +10,8 @@ public class ApiEndpoints {
     public String getUsers() {
         return baseURL + "/Users";
     }
+
+    public String getUserById() {
+        return baseURL + "/Users/{id}";
+    }
 }
