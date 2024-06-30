@@ -163,4 +163,37 @@ public class createUser {
                 .assertThat()
                 .time(lessThan(5000L)); // Validate the response time – in milliseconds
     }
+
+    @Test
+    public void validateCreateUserWithBlankRequestBodyField() {
+
+        System.out.println("--------------------Request----------------------");
+
+        Response response = given().log().all()
+                .accept("*/*")
+                .contentType(ContentType.JSON)
+                .and()
+                .body("{}")
+                .when()
+                .post(apiEndpoints.getUsers()); // get endpoints to create user
+
+        System.out.println("--------------------Response----------------------");
+
+        // Get response code
+        int statusCode = response.getStatusCode();
+        System.out.println("Response Status Codes: " + statusCode);
+
+        // Get response body
+        String responseBody = response.thenReturn().asPrettyString();
+        System.out.println("Response Body:\n" + responseBody);
+
+        //Assert
+        Assert.assertEquals(statusCode, 400, "Check the status code is 400");
+        Assert.assertEquals(response.getContentType(), "application/problem+json; charset=utf-8", "Check the content type is application/problem+json; charset=utf-8");
+        Assert.assertFalse(responseBody.isEmpty(), "Check the response body is not empty");
+
+        response.then()
+                .assertThat()
+                .time(lessThan(5000L)); // Validate the response time – in milliseconds
+    }
 }
