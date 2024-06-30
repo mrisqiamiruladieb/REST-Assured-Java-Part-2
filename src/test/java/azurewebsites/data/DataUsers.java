@@ -25,4 +25,17 @@ public class DataUsers {
         return payload;
 
     }
+
+    public JSONObject createUserValidationByFillingInAFewData() {
+
+        // create instance of JSONObject class
+        JSONObject payload = new JSONObject();
+
+        // Insert key value pair to jsonObject
+        payload.put("id", rand_int);
+        payload.put("userName", "Hello Baron" + rand_int);
+
+        return payload;
+
+    }
 }
