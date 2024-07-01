@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="azurewebsites">
+    <test name="Regression Test">
+        <classes>
+            <class name="azurewebsites.scenarios.createUser"/>
+            <class name="azurewebsites.scenarios.getUsers"/>
+            <class name="azurewebsites.scenarios.getUserById"/>
+            <class name="azurewebsites.scenarios.updateUser"/>
+            <class name="azurewebsites.scenarios.deleteUser"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->

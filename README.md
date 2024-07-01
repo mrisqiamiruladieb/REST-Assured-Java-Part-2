@@ -21,6 +21,11 @@
   - To view _the Allure Report results_ in **HTML**, **run** _the following command_ in the **terminal**.
     - `allure serve allure-results`
 
+## Run simultaneously using the .xml file
+- **Create a file** with _the directory :_ src/test/java/azurewebsites/runner/**TestRunner.xml**
+- Code ([References](https://www.softwaretestinghelp.com/testng-example-to-create-testng-xml/)) 
+- _Right click_ on the file and select **run** _(the play logo)_
+
 ## Issues and solutions
 - Cannot resolve symbol 'module' when _importing io.restassured.module.jsv.JsonSchemaValidator;_
   - **Solution :** Add `<scope>test</scope>` to _the corresponding dependency_ in **pom.xml**
