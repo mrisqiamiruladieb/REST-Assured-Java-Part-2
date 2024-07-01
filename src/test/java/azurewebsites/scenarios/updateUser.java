@@ -37,7 +37,7 @@ public class updateUser {
         // get create user success request body
         JSONObject payload = dataUsers.successUpdateUser();
 
-        // Save path file valid create user response schema
+        // Save path file valid update user response schema
         String jsonSchemaFilePath = "src/test/java/azurewebsites/schema/Users/validCreateUserResponseSchema.json";
 
         System.out.println("--------------------Request----------------------");
@@ -154,7 +154,7 @@ public class updateUser {
         // get create user success request body
         JSONObject payload = dataUsers.successUpdateUser();
 
-        // Save path file valid create user response schema
+        // Save path file invalid update user response schema
         String jsonSchemaFilePath = "src/test/java/azurewebsites/schema/Users/badRequestGetUserByIdResponseSchema.json";
 
         System.out.println("--------------------Request----------------------");
@@ -213,7 +213,7 @@ public class updateUser {
         // get create user success request body
         JSONObject payload = dataUsers.successUpdateUser();
 
-        // Save path file valid create user response schema
+        // Save path file invalid update user response schema
         String jsonSchemaFilePath = "src/test/java/azurewebsites/schema/Users/badRequestGetUserByIdResponseSchema.json";
 
         System.out.println("--------------------Request----------------------");
@@ -272,7 +272,7 @@ public class updateUser {
         // get create user success request body
         JSONObject payload = dataUsers.validateUpdateUserWithRegisteredData();
 
-        // Save path file valid create user response schema
+        // Save path file invalid update user response schema
         String jsonSchemaFilePath = "src/test/java/azurewebsites/schema/Users/validCreateUserResponseSchema.json";
 
         System.out.println("--------------------Request----------------------");
