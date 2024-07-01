@@ -38,4 +38,18 @@ public class DataUsers {
         return payload;
 
     }
+
+    public JSONObject successUpdateUser() {
+
+        // create instance of JSONObject class
+        JSONObject payload = new JSONObject();
+
+        // Insert key value pair to jsonObject
+        payload.put("id", rand_int);
+        payload.put("userName", "Hello User-Update" + rand_int);
+        payload.put("password", "okay_user-Update" + rand_int);
+
+        return payload;
+
+    }
 }
