@@ -1,7 +1,7 @@
 public class convertToLowerCaseWithSpace {
 
     public static void main(String[] args) {
-        String inputString = "validateDeleteUserWithUnregisterId";
+        String inputString = "validateDeleteUserWithNonIntegerId";
         String outputString = convertToLowerCaseWithSpace(inputString);
         System.out.println(outputString); // Output: "success get user by id"
     }
