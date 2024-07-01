@@ -52,4 +52,18 @@ public class DataUsers {
         return payload;
 
     }
+
+    public JSONObject validateUpdateUserWithRegisteredData() {
+
+        // create instance of JSONObject class
+        JSONObject payload = new JSONObject();
+
+        // Insert key value pair to jsonObject
+        payload.put("id", 4);
+        payload.put("userName", "User 4");
+        payload.put("password", "Password4");
+
+        return payload;
+
+    }
 }
